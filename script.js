@@ -32,12 +32,36 @@ init()
 
 var cursor = document.querySelector(".cursor");
 var main  = document.querySelector(".main");
-var video = document.querySelector(".video1");
+$(".video1").mouseenter(function () { 
+  cursor.classList.add("active");
+});
+$(".video1").mouseleave(function () { 
+  cursor.classList.remove("active");
+});
+
+var video = document.querySelector(".vid");
+video.addEventListener("mouseenter", () => {
+  cursor.classList.add("active");
+});
+
+video.addEventListener("mouseleave", () => {
+  cursor.classList.remove("active");
+});
+
+var video = document.querySelector(".vid2");
+video.addEventListener("mouseenter", () => {
+  cursor.classList.add("active");
+});
+
+video.addEventListener("mouseleave", () => {
+  cursor.classList.remove("active");
+});
+
 window.addEventListener("mousemove",function moveCircle(e) {
-  TweenLite.to(cursor, 0.4, {
+  TweenLite.to(cursor, 0.5, {
     css: {
-      left: e.pageX-30,
-      top: e.pageY-30
+      left: e.pageX-20,
+      top: e.pageY-20
     }
   });
 })

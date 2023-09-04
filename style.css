@@ -8,15 +8,42 @@ html,body{
     height: 100%;
     width: 100%;
 }
-.cursor{
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
+.cursor {
     position: absolute;
-    background-color: #EDBFFF;
-    z-index: 99999999999;
-    transition: left ease-in-out 0.1s top ease-in-out 0.1s scale ;
+    background: #EDBFFF;
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    z-index: 1;
+    transition: 0.1s ease-in-out transform, 0.5s ease-in-out opacity;
+    user-select: none;
+    pointer-events: none;
+    transform: scale(2);
+    mix-blend-mode:difference;
+}
+.cursor.active {
+    opacity: 1;
+    width: 30px;
+    height: 7px;
+    border-radius: 10px;
+    transform: scale(4);
     mix-blend-mode: difference;
+    background: #EDBFFF;
+    transition: 0.1s ease-in-out transform, 0.5s ease-in-out opacity;
+}
+.cursor::before {
+    content: "SOUND ON";
+    position: absolute;
+    transform: translate(50%,90%);
+    font-size: 3px;
+    display: block;
+    opacity: 0;
+    color: black;
+    font-weight: 700;
+}
+.cursor.active::before {
+    opacity: 1;
 }
 .main{
     background-color: #0F0D0D;
@@ -44,6 +71,7 @@ html,body{
     align-items: center;
     justify-content: center;
     gap: 10px;
+    text-decoration: none;
 }
 #nav #circle{
     height: 20px;
@@ -57,7 +85,8 @@ html,body{
     text-transform:capitalize;
 }
 #nav h4:hover{
-    text-decoration: underline;
+    text-decoration: line-through;
+    font-style: italic;
 }
 .page1 h1{
     font-family: PP mori;
